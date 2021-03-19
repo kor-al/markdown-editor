@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -22,9 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-=======
+
+
 .sass-cache/
 *.css.map
 *.sass.map
 *.scss.map
->>>>>>> c28fa6e2b9ef20e10a5693d2976fd0867e3375f4
