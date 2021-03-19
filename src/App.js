@@ -4,44 +4,35 @@ import React from 'react';
 import marked from 'marked';
 
 function Header() {
-  return ( <
-    header className = "header container" >
-    <
-    h1 > Markdown Editor < /h1> <
-    /header>
+  return ( <header className = "header container" >
+    <h1 > Markdown Editor </h1> 
+    </header>
   );
 }
 
 function Footer() {
-  return ( <
-    footer className = "footer container" >
-    2021 <
-    /footer>
+  return ( <    footer className = "footer container" >
+    2021 </footer>
   );
 }
 
 
 
 function Editor(props) {
-  return ( <
-    div className = "editor" >
-    <
-    textarea className = "editor__textarea"
+  return ( <div className = "editor" >
+    <textarea className = "editor__textarea"
     name = 'editor'
     placeholder = "Enter markdown"
     onInput = {
       props.handleChange
     } >
-    <
-    /textarea> <
-    /div>
+    </textarea> </div>
   )
 }
 
 
 function Preview(props) {
-  return ( <
-    div className = "preview"
+  return ( <div className = "preview"
     dangerouslySetInnerHTML = {
       {
         __html: props.html
@@ -86,18 +77,14 @@ class Workplace extends React.Component {
   }
 
   render() {
-    return ( <
-      section className = "workplace container" >
-      <
-      Editor handleChange = {
+    return ( <section className = "workplace container" >
+      <      Editor handleChange = {
         this.handleChange
       }
-      /> <
-      Preview html = {
+      /> <      Preview html = {
         this.state.htmlMarkdown
       }
-      /> <
-      /section>
+      /> </section>
     );
   }
 }
@@ -114,16 +101,11 @@ class Workplace extends React.Component {
 
 
 function App() {
-  return ( <
-    div className = 'App' >
-    <
-    Header / > {
-      /* < MarkdownExample /> */ } <
-    Workplace / >
-    <
-    Footer / >
-    <
-    /div>
+  return ( <div className = 'App' >
+    <Header /> {
+      /* < MarkdownExample /> */ } <Workplace />
+    <Footer />
+    </div>
   );
 }
 
