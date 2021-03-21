@@ -13,7 +13,7 @@ function Header() {
 
 function Footer() {
   return ( <    footer className = "footer container" >
-    2021. Built by <a href="https://github.com/kor-al/">kor-al</a></footer>
+    Designed and Built by <a href="https://github.com/kor-al/">kor-al</a></footer>
   );
 }
 
