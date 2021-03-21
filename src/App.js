@@ -12,7 +12,7 @@ function Header() {
 
 function Footer() {
   return ( <    footer className = "footer container" >
-    2021 </footer>
+    2021. Built by <a href="https://github.com/kor-al/">kor-al</a></footer>
   );
 }
 
@@ -20,7 +20,7 @@ function Footer() {
 
 function Editor(props) {
   return ( <div className = "editor" >
-    <textarea className = "editor__textarea"
+    <textarea className = "editor__textarea" id="editor"
     name = 'editor'
     placeholder = "Enter markdown"
     onInput = {
@@ -32,7 +32,7 @@ function Editor(props) {
 
 
 function Preview(props) {
-  return ( <div className = "preview"
+  return ( <div className = "preview" id="preview"
     dangerouslySetInnerHTML = {
       {
         __html: props.html
@@ -50,6 +50,8 @@ class Workplace extends React.Component {
       htmlMarkdown: ''
     };
     this.handleChange = this.handleChange.bind(this);
+    this.initInput = `# This is markdown\n 1. Write markdown on the left \n 2. Results appear on the right\n\nAdd emphasis by making text **bold** or *italic*.\n ## More options\nYou can add \`code inline\` or \n\`\`\` \n{\n'make': 'a fenced code block'\n}\n\`\`\`\n> Quotes are highlighted\n\n![Mandarin duck](https://upload.wikimedia.org/wikipedia/commons/5/51/Mandarin.duck.arp.jpg)  \n Check out [Markdown Basic Syntax](https://www.markdownguide.org/basic-syntax/)  
+    `;
   }
 
   componentDidMount() {
@@ -65,11 +67,20 @@ class Workplace extends React.Component {
       this.style.height = "auto";
       this.style.height = (this.scrollHeight) + "px";
     }
+
+    //Render the initial value - input event
+    const editor = document.getElementById("editor");
+    var event = new Event('input', {
+      'bubbles': true,
+      'cancelable': true
+  });
+    editor.value = this.initInput;
+    editor.dispatchEvent(event);
   }
 
   handleChange(event) {
     var markedHtml = marked(event.target.value, {
-      breaks: true
+      // breaks: true
     });
     this.setState({
       htmlMarkdown: markedHtml
@@ -88,16 +99,6 @@ class Workplace extends React.Component {
     );
   }
 }
-
-// class MarkdownExample extends React.Component {
-//   getMarkdownText() {
-//     var rawMarkup = marked('This is _Markdown_.');
-//     return { __html: rawMarkup };
-//   }
-//   render() {
-//     return <div dangerouslySetInnerHTML={this.getMarkdownText()} />
-//   }
-// }
 
 
 function App() {

@@ -4,6 +4,22 @@
     margin: 0 auto;
 }
 
+.header{
+  padding: 2em 0;
+}
+
+.footer{
+  font-size: 0.8rem;
+  padding: 3em 0 1em 0;
+  text-align: center;
+  color: rgba($color: #000000, $alpha: 0.5);
+
+  a{
+    text-decoration: none;
+    color:  rgba($color: #000000, $alpha: 0.7);
+  }
+}
+
 .workplace{
     display: flex;
     justify-content: space-between;
@@ -13,14 +29,15 @@
     //border: 1px solid red;
     width: 45%;
     box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
-    padding: 1rem;
+    padding: 2rem;
     
     &__textarea{
         border: none;
         width: 100%;
         height: 100%; 
         font-size: 0.9rem;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-family: inherit;
+        font-style: italic;
         resize: none;
     }
     &__textarea:focus{
@@ -30,10 +47,46 @@
   
   .preview{
     width: 45%;
-    word-wrap:break-word;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 1rem;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    padding: 2rem;
     font-size: 1rem;
     //box-shadow: inset 0 0 10px #000000;
     box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3);
+  }
+
+
+
+  //marked styles
+  blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    padding: 0.5em 10px;
+  }
+
+  @media(max-width: 1200px){
+    .container{
+      width: 90%;
+      justify-content: space-around;
+    }
+
+  }
+
+  @media(max-width: 750px){
+
+
+    .workplace{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .editor, .preview{
+      width: 100%;
+    }
+
+    .editor{
+      margin-bottom: 2rem;;
+    }
+
   }
