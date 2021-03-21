@@ -81,7 +81,7 @@ class Workplace extends React.Component {
 
   handleChange(event) {
     var markedHtml = marked(event.target.value, {
-      // breaks: true
+      breaks: true
     });
     //sanitize
     markedHtml = DOMPurify.sanitize( markedHtml , {USE_PROFILES: {html: true}} );
@@ -107,8 +107,8 @@ class Workplace extends React.Component {
 
 function App() {
   return ( <div className = 'App' >
-    <Header /> {
-      /* < MarkdownExample /> */ } <Workplace />
+    <Header />
+    <Workplace />
     <Footer />
     </div>
   );
