@@ -2,6 +2,7 @@ import './App.css';
 import './scss/styles.css';
 import React from 'react';
 import marked from 'marked';
+import DOMPurify from 'dompurify';
 
 function Header() {
   return ( <header className = "header container" >
@@ -82,6 +83,9 @@ class Workplace extends React.Component {
     var markedHtml = marked(event.target.value, {
       // breaks: true
     });
+    //sanitize
+    markedHtml = DOMPurify.sanitize( markedHtml , {USE_PROFILES: {html: true}} );
+
     this.setState({
       htmlMarkdown: markedHtml
     });
